@@ -1,12 +1,3 @@
-terraform {
-  required_providers {
-    tfe = {
-      source  = "hashicorp/tfe"
-      version = "~> 0.55"
-    }
-  }
-}
-
 locals {
   working_directories = {
     remote : "./terraform/02_remote",
