@@ -5,3 +5,7 @@ variable "repo_identifier" {
 variable "github_app_installation_id" {
   type = string
 }
+
+variable "organization" {
+  type = string
+}
