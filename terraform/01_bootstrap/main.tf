@@ -34,7 +34,7 @@ resource "tfe_variable" "plan_args" {
   for_each     = { for ws in local.workspaces : "${ws.env}-${ws.subenv}-${ws["exec-mode"]}" => ws }
   workspace_id = tfe_workspace.workspaces[each.key].id
   key          = "TF_CLI_ARGS_plan"
-  value        = "--var-file=\"./tfvars/${each.value.env}-${each.value.subenv}.tfvars\""
+  value        = "--var-file='./tfvars/${each.value.env}-${each.value.subenv}.tfvars'"
   category     = "env"
   sensitive    = false
 }
@@ -43,7 +43,7 @@ resource "tfe_variable" "apply_args" {
   for_each     = { for ws in local.workspaces : "${ws.env}-${ws.subenv}-${ws["exec-mode"]}" => ws }
   workspace_id = tfe_workspace.workspaces[each.key].id
   key          = "TF_CLI_ARGS_apply"
-  value        = "--var-file=\"./tfvars/${each.value.env}-${each.value.subenv}.tfvars\""
+  value        = "--var-file='./tfvars/${each.value.env}-${each.value.subenv}.tfvars'"
   category     = "env"
   sensitive    = false
 }
