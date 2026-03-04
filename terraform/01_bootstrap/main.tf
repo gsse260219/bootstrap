@@ -25,8 +25,8 @@ resource "tfe_workspace" "workspaces" {
   project_id        = data.tfe_project.project.id
 
   vcs_repo {
-    identifier                 = var.repo_identifier
-    github_app_installation_id = var.github_app_installation_id
+    identifier     = var.repo_identifier
+    oauth_token_id = var.oauth_token_id
   }
 }
 

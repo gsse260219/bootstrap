@@ -2,7 +2,7 @@ variable "repo_identifier" {
   type = string
 }
 
-variable "github_app_installation_id" {
+variable "oauth_token_id" {
   type = string
 }
 
