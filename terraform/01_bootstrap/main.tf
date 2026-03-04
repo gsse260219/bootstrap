@@ -15,7 +15,6 @@ resource "tfe_workspace" "workspaces" {
   for_each = { for ws in local.workspaces : "${ws.env}-${ws.subenv}-${ws["exec-mode"]}" => ws }
 
   name              = each.key
-  organization      = var.repo_identifier
   working_directory = local.working_directories[each.value["exec-mode"]]
 
   vcs_repo {
