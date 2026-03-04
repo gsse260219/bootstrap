@@ -9,3 +9,7 @@ variable "github_app_installation_id" {
 variable "organization" {
   type = string
 }
+
+variable "project_name" {
+  type = string
+}

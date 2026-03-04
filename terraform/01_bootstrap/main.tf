@@ -11,12 +11,18 @@ locals {
   ]
 }
 
+data "tfe_project" "project" {
+  organization = var.organization
+  name         = var.project_name
+}
+
 resource "tfe_workspace" "workspaces" {
   for_each = { for ws in local.workspaces : "${ws.env}-${ws.subenv}-${ws["exec-mode"]}" => ws }
 
   name              = each.key
   organization      = var.organization
   working_directory = local.working_directories[each.value["exec-mode"]]
+  project_id        = data.tfe_project.project.id
 
   vcs_repo {
     identifier                 = var.repo_identifier
